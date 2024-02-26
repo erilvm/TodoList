@@ -12,6 +12,13 @@ namespace TodoList.ViewModel
 {
     public partial class RegistroTareaViewModel : ObservableObject, IQueryAttributable
     {
+
+        public List<string> Estado{ get; } = new List<string> { "Inicial", "Activo", "Completado", "Cancelado" };
+        public List<string> TipoTarea { get; } = new List<string> { "Normal", "Encuesta", "Archivo" };
+        public List<string> Prioridad { get; } = new List<string> { "Baja", "Media", "Alta" };
+
+
+
         //Es la propiedad 
         [ObservableProperty]
         public Tarea tarea;
