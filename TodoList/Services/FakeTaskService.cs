@@ -7,24 +7,22 @@ using TodoList.Models;
 
 namespace TodoList.Services
 {
-    public class FakeTaskService: IDataService
+    public class FakeTaskService : IDataService
     {
         public List<Tarea> Tasks { get; set; }
         public FakeTaskService()
         {
             Tasks = [];
-            for(int i = 0; i < 100; i++)
+            for (int i = 1; i <= 10; i++)
             {
                 Tasks.Add(new()
                 {
-                    Titulo = $"TAREA {i}",
+                    Titulo = $"Tarea {i}",
                     Descripcion = $"Tarea autogenerada {i}"
-
                 });
             }
         }
-
-        public void AddTask(Tarea tarea)
+        public async Task AddTask(Tarea tarea)
         {
             Tasks.Add(tarea);
         }
@@ -33,5 +31,6 @@ namespace TodoList.Services
             return Tasks;
         }
 
+        
     }
 }

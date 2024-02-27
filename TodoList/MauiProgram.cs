@@ -14,6 +14,10 @@ namespace TodoList
             //Inyeccion de dependencias
            
             builder.Services.AddSingleton<IDataService,FakeTaskService>();
+
+            //Base de datos
+            builder.Services.AddSingleton<IDataService, FirebaseDataService>();
+
             builder.Services.AddTransient<RegistroTareaPage>();
             builder.Services.AddTransient<RegistroTareaViewModel>();
             builder.Services.AddTransient<TodoPage>();

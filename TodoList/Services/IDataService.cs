@@ -13,8 +13,8 @@ namespace TodoList.Services
         {
             get; set;
         }
-        public void AddTask(Tarea tarea);
-            public List<Tarea> GetTasks();
+        public Task AddTask(Tarea tarea);
+        public List<Tarea> GetTasks();
 
     }
 }
