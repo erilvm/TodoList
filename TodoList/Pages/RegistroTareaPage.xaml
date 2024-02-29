@@ -22,6 +22,12 @@
                     FontSize="24"
                     HorizontalOptions="Center" />
 
+                
+                
+                
+                
+                
+                
                 <!-- Make the entry fields larger -->
                 <Entry
                     Placeholder="Titulo"
