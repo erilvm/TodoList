@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TodoList.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using TodoList.Models;
 using TodoList.Services;
+using TodoList.Models.Encuestas;
+using TodoList.Pages;
 
 namespace TodoList.ViewModel
 {
@@ -16,6 +19,8 @@ namespace TodoList.ViewModel
         private Tarea tarea;
 
         private IDataService fakeService;
+
+        public string[] TiposTareas { get; set; } = (string[])Enum.GetNames(typeof(eTipoTarea));
 
         public RegistroTareaViewModel(IDataService service)
         {
@@ -29,12 +34,25 @@ namespace TodoList.ViewModel
             fakeService.AddTask(Tarea);
             Shell.Current.GoToAsync("..");
         }
+
+
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            if (query.TryGetValue("TAREA", out object value))
+            object value = null;
+            if (query.TryGetValue("TAREA", out value))
             {
                 Tarea = value as Tarea;
             }
+            if (query.TryGetValue("ENCUESTA", out value))
+            {
+                Tarea.Encuesta = value as Encuesta;
+            }
+        }
+
+        [RelayCommand]
+        public void AbrirRegistroEncuesta()
+        {
+            Shell.Current.GoToAsync(nameof(RegistroEncuestaPage));
         }
 
     }

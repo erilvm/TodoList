@@ -23,6 +23,9 @@ namespace TodoList
             builder.Services.AddTransient<TodoPage>();
             builder.Services.AddTransient<TodoViewModel>();
 
+            builder.Services.AddTransient<RegistroEncuestaPage>();
+            builder.Services.AddTransient<RegistroEncuestaViewModel>();
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
