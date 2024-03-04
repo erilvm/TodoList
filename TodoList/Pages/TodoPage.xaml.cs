@@ -3,6 +3,7 @@ using TodoList.ViewModel;
 
 namespace TodoList.Pages;
 
+
 public partial class TodoPage : ContentPage
 {
     public TodoPage(TodoViewModel mv)
