@@ -52,6 +52,12 @@ namespace TodoList.ViewModel
         }
 
         [RelayCommand]
+        public void AbrirRegistroPreguntas()
+        {
+            Shell.Current.GoToAsync("RegistroPreguntasPage");
+        }
+
+        [RelayCommand]
         public void EditarRegistro()
         {
             if (TareaSeleccionada == null)

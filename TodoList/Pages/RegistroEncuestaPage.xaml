@@ -1,26 +1,53 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TodoList.Pages.RegistroEncuestaPage"
-             Title="RegistroEncuestaPage">
-    <VerticalStackLayout
-     Margin="20,0">
-        <Label 
-         Text="Listado de encuestas"
-         VerticalOptions="Center" 
-         HorizontalOptions="Center" />
+             Title="Encuesta"
+             xmlns:helpers="clr-namespace:TodoList.Helpers"
+             xmlns:converters="clr-namespace:TodoList.Converters"
+>
 
-        <Button
-         Text="Registrar Encuestaa"
-         Command="{Binding RegistraEncuestaCommand}"
-         VerticalOptions="StartAndExpand"
-         HorizontalOptions="FillAndExpand"
-         Background="Blue"
-         TextColor="White"
-         Margin="10,20"
-         FontSize="18"
-         ></Button>
-        
 
-    </VerticalStackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar preguntas" Command="{Binding AbrirRegistroPreguntasCommand}" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="{x:Static helpers:MaterialIconHelper.Plus}" Color="#2196F3" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20">
+
+                <CollectionView ItemsSource="{Binding Tareas}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding TareaSeleccionada}"
+                        SelectionChangedCommand="{Binding EditarRegistroCommand}"
+                        SelectionChangedCommandParameter="{Binding Path=SelectedItem, Source={RelativeSource Self}}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="LightGray" Padding="10" Margin="5" BackgroundColor="Beige" CornerRadius="10">
+                                <StackLayout>
+                                    <Label Text="{Binding Titulo}" FontAttributes="Bold" FontSize="18" TextColor="#2196F3"/>
+                                    <Label Text="{Binding Descripcion}" FontSize="16" TextColor="#333333" LineBreakMode="WordWrap"/>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,10,0,0">
+                                        <Label Text="{Binding FechaInicio, StringFormat='Inicio: {0:d}'}" FontSize="14" TextColor="#666666"/>
+                                        <Label Text="{Binding FechaFin, StringFormat=' - Fin: {0:d}'}" FontSize="14" TextColor="#666666"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!-- Agregar un indicador de carga -->
+                <ActivityIndicator IsRunning="{Binding IsRefresh}" IsVisible="{Binding IsRefresh}" Color="#2196F3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+                <Label Text="No hay encuestas disponibles." IsVisible="{Binding Tareas.Count, Converter={converters:IsTareaTipoEncuesta}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="18" TextColor="#666666"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
+

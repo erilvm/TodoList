@@ -10,10 +10,10 @@ using TodoList.Models;
 
 namespace TodoList.Services
 {
-    public  class FirebaseDataService :  IDataService
+    public class FirebaseDataService : IDataService
     {
         public List<Tarea> Tasks { get; set; } = new();
- 
+
         FirebaseClient firebaseClient;
 
 

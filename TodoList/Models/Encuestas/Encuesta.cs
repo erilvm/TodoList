@@ -21,7 +21,7 @@ namespace TodoList.Models.Encuestas
         [ManyToMany(typeof(Respuesta))]
 
         public Respuesta[] Respuestas { get; set; }
-        public Encuesta ()
+        public Encuesta()
         {
             Preguntas = [];
             Respuestas = [];

@@ -54,23 +54,36 @@ namespace TodoList.ViewModel
 
         private async void RegisterUserTappedAsync(object obj)
         {
+            // Validar que se haya ingresado un correo electrónico
+            if (string.IsNullOrEmpty(Email))
+            {
+                await App.Current.MainPage.DisplayAlert("Alerta", "Por favor, ingresa un correo electrónico", "OK");
+                return;
+            }
+
+            // Validar que se haya ingresado una contraseña
+            if (string.IsNullOrEmpty(Password))
+            {
+                await App.Current.MainPage.DisplayAlert("Alerta", "Por favor, ingresa una contraseña", "OK");
+                return;
+            }
 
             try
             {
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
 
-                var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(Email,Password);
+                var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(Email, Password);
 
                 string token = auth.FirebaseToken;
                 if (token != null)
-
-                    await App.Current.MainPage.DisplayAlert("Alert", "User Registered successfully", "OK");
-                await this._navigation.PopAsync();
+                {
+                    await App.Current.MainPage.DisplayAlert("Alerta", "Usuario registrado exitosamente.", "OK");
+                    await this._navigation.PopAsync();
+                }
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
-                throw;
+                await App.Current.MainPage.DisplayAlert("Alerta", $"Error al registrar al usuario: {ex.Message}", "OK");
             }
         }
     }

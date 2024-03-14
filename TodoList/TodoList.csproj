@@ -92,23 +92,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\Dashboard.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
+	  <Compile Update="Pages\RegistroPreguntasPage.xaml.cs">
+	    <DependentUpon>RegistroPreguntasPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\Dashboard.xaml">
-	    <Generator></Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\RegisterPage.xaml">
 	    <Generator></Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\RegistroEncuestaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\RegistroTareaPage.xaml">
+	  <MauiXaml Update="Pages\RegistroPreguntasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\RegistroTareaPage.xaml">
+	    <Generator></Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\TodoPage.xaml">
 	    <Generator></Generator>

@@ -4,51 +4,82 @@
              NavigationPage.HasNavigationBar="False"
              x:Class="TodoList.Pages.RegisterPage"
              Title="RegisterPage">
-    <Grid
-        Padding="20,50,20,0"
-        HorizontalOptions="FillAndExpand"
-        RowSpacing="20"
-        VerticalOptions="FillAndExpand">
-        <Grid.RowDefinitions>
+    
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#87CEEB">
+            <Grid BackgroundColor="White"
+              Margin="20"
+              Padding="20">
+                
+             <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Label
-            Grid.Row="0"
-            FontAttributes="Bold"
-            FontSize="24"
-            HorizontalOptions="CenterAndExpand"
-            Text="Registration"
-            TextColor="#1C375C" />
-        <Label
-            Grid.Row="1"
-            Margin="0,-15,0,0"
-            HorizontalOptions="CenterAndExpand"
-            Text="Register With Email"
-            TextColor="#1C375C" />
-        <Entry
-            Grid.Row="2"
-            Margin="0,20,0,0"
-            HorizontalOptions="FillAndExpand"
-            Placeholder="Email"
-            Text="{Binding Email}"
-            VerticalOptions="FillAndExpand" />
-        <Entry
-            Grid.Row="3"
-            HorizontalOptions="FillAndExpand"
-            IsPassword="True"
-            Placeholder="Password"
-            Text="{Binding Password}"
-            VerticalOptions="FillAndExpand" />
-        <Button
-            Grid.Row="4"
-            BackgroundColor="#1C375C"
+
+
+                <!-- Encabezado con imagen -->
+                <StackLayout Grid.Row="0" HorizontalOptions="Center">
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/747/747094.png" Aspect="AspectFit" HeightRequest="200" WidthRequest="200" />
+                </StackLayout>
+
+                <!-- Títulos -->
+                <Label Grid.Row="1"
+             Text="¡Registrate!"
+             FontSize="28"
+             FontAttributes="Bold"
+             HorizontalOptions="Center"
+             TextColor="#1C375C" />
+                <Label Grid.Row="2"
+             Text="Crea tu cuenta"
+             HorizontalOptions="Center"
+             TextColor="#1C375C" />
+
+                <!-- Campos de entrada -->
+                <Entry Grid.Row="3"
+         Placeholder="Email"
+         Text="{Binding Email}"
+         TextColor="#1C375C"
+         BackgroundColor="White"
+         PlaceholderColor="#9FB9CC"
+         VerticalOptions="Center" />
+        
+        
+                <Entry Grid.Row="4"
+         Placeholder="Password"
+         IsPassword="True"
+         Text="{Binding Password}"
+         TextColor="#1C375C"
+         BackgroundColor="White"
+         PlaceholderColor="#9FB9CC"
+         VerticalOptions="Center" />
+        
+        
+            
+      
+
+                <!-- Botones -->
+                <StackLayout Grid.Row="5"
+             Orientation="Vertical"
+             HorizontalOptions="Center">
+                    <Button BackgroundColor="#2196F3"
             Command="{Binding RegisterUser}"
-            CornerRadius="20"
-            Text="Register" />
-    </Grid>
+            CornerRadius="25"
+            Text="Registrarse"
+            TextColor="White"
+            WidthRequest="170"
+            HeightRequest="50"
+            Margin="0,135,0,10" />
+                   
+
+
+                </StackLayout>
+        
+        
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
     

@@ -4,7 +4,7 @@ namespace TodoList
 {
     public partial class MainPage : ContentPage
     {
-       
+
 
         public MainPage()
         {
@@ -12,7 +12,10 @@ namespace TodoList
             BindingContext = new LoginViewModel(Navigation);
         }
 
-        
+
     }
 
 }
+
+
+

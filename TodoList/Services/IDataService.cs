@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TodoList.Models;
+using TodoList.Models.Encuestas;
 
 namespace TodoList.Services
 {

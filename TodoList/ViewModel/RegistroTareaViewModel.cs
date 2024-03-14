@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using TodoList.Models;
 using TodoList.Services;
 using TodoList.Models.Encuestas;
 using TodoList.Pages;

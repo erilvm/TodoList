@@ -20,13 +20,14 @@ public partial class TodoPage : ContentPage
         TodoViewModel mViewModel = ((TodoViewModel)BindingContext);
 
         if (mViewModel.AgregarTareasCommand.CanExecute(null))
-
+        {
             mViewModel.AgregarTareasCommand.Execute(null);
+        }
     }
 
-    protected override void OnDisappearing()
-    {
-        base.OnDisappearing();
-    }
+    //protected override void OnDisappearing()
+    //{
+      //  base.OnDisappearing();
+    //}
 
 }

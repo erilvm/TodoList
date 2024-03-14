@@ -9,4 +9,5 @@ public partial class RegistroTareaPage : ContentPage
 		InitializeComponent();
 		BindingContext = vm;
 	}
+
 }

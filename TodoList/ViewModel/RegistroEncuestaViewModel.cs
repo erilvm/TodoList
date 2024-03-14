@@ -9,7 +9,7 @@ using TodoList.Models.Encuestas;
 
 namespace TodoList.ViewModel
 {
-    public partial  class RegistroEncuestaViewModel : ObservableObject
+    public partial class RegistroEncuestaViewModel : ObservableObject
 
     {
         public RegistroEncuestaViewModel() { }
@@ -37,4 +37,3 @@ namespace TodoList.ViewModel
     }
 
 }
-

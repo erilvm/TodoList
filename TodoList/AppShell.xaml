@@ -5,14 +5,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TodoList"
     Shell.FlyoutBehavior="Disabled"
-    Title="TodoList">
+    Title="TodoList"
+    TitleColor="White">
 
     <ShellContent
         Title="Home"
-        Shell.NavBarIsVisible="False" 
+        Shell.NavBarIsVisible="True" 
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage"
         />
-   
+    <Shell.BackgroundColor>
+        <OnPlatform x:TypeArguments="Color">
+            <On Platform="iOS" Value="Black" />
+            <On Platform="Android" Value="Black" />
+        </OnPlatform>
+    </Shell.BackgroundColor>
+
+
 
 </Shell>

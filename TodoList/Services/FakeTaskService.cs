@@ -12,8 +12,8 @@ namespace TodoList.Services
         public List<Tarea> Tasks { get; set; }
         public FakeTaskService()
         {
-            Tasks = [];
-            for (int i = 1; i <= 10; i++)
+            Tasks = new List<Tarea>(); // Corregir la inicialización de la lista
+            for (int i = 0; i <= 100; i++)
             {
                 Tasks.Add(new()
                 {
@@ -31,6 +31,7 @@ namespace TodoList.Services
             return Tasks;
         }
 
-        
+
     }
+
 }

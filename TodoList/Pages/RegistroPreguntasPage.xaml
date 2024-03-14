@@ -1,8 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TodoList.Pages.RegistroTareaPage"
+             x:Class="TodoList.Pages.RegistroPreguntasPage"
              xmlns:local="clr-namespace:TodoList.Converters"
-             Title="Registro de Tarea" >
+             Title="Registro de Preguntas" >
 
     <ContentPage.Resources>
         <local:IsTareaTipoEncuesta x:Key="isTareaTipoEncuesta" />
@@ -13,7 +13,7 @@
             <StackLayout Padding="20" Spacing="20">
 
                 <Label 
-                    Text="¡Crea una Nueva Tarea!"
+                    Text="¡Crea una nueva pregunta!"
                     FontSize="24"
                     TextColor="#2196F3"
                     FontAttributes="Bold"
@@ -94,7 +94,7 @@
                     FontSize="18">
                 </Button>
 
-               
+
 
             </StackLayout>
         </ScrollView>
