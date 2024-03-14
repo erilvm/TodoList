@@ -7,18 +7,22 @@
 >
 
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar preguntas" Command="{Binding AbrirRegistroPreguntasCommand}" >
-            <ToolbarItem.IconImageSource>
-                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="{x:Static helpers:MaterialIconHelper.Plus}" Color="#2196F3" />
-            </ToolbarItem.IconImageSource>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
-
 
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20" Spacing="20">
+
+                <!-- Título -->
+                <Label Text="Listado de preguntas" FontSize="24" TextColor="#333333" HorizontalOptions="Center"/>
+
+                <!-- Botón para agregar tarea -->
+                <Button Command="{Binding AbrirRegistroCommand}" Text="Agregar pregunta" BackgroundColor="#2196F3" TextColor="White" HorizontalOptions="End">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MaterialDesignIcons" Glyph="{x:Static helpers:MaterialIconHelper.Plus}" Color="White"/>
+                    </Button.ImageSource>
+                </Button>
+                
+                
 
                 <CollectionView ItemsSource="{Binding Tareas}"
                         SelectionMode="Single"

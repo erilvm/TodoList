@@ -54,5 +54,7 @@ namespace TodoList.ViewModel
             Shell.Current.GoToAsync(nameof(RegistroEncuestaPage));
         }
 
+
+
     }
 }
