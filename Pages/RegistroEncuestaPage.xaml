@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoList.Pages.RegistroEncuestaPage"
+             xmlns:helpers="clr-namespace:TodoList.Helpers"
+             xmlns:local="clr-namespace:TodoList.Converters"
+             Title="">
+
+    <ContentPage.Resources>
+        <local:IsPreguntaTipoOpciones x:Key="IsPreguntaTipoOpciones" />
+        <local:TipoPreguntaToStringConverter x:Key="tipoPreguntaToStringConverter" />
+    </ContentPage.Resources>
+
+    
+    <Grid>
+        <Image Source="https://i.pinimg.com/550x/85/83/29/8583295c22ce8e0b9931b4c1512e7761.jpg" Aspect="AspectFill" />
+
+
+        <ScrollView>
+        <VerticalStackLayout
+        Margin="20,0">
+            <Label 
+            Text="{Binding TituloPage}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="24"
+            TextColor="#458ccc"
+            Margin="0,20"/>
+            
+            <Entry
+            Placeholder="Descripción"
+            VerticalOptions="StartAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Margin="10,10"
+            FontSize="16"
+                
+                Background="White"
+            Text="{Binding Pregunta.Descripcion}"
+            ></Entry>
+            
+            <Picker
+            x:Name="pikerTipo"
+            Title="Tipo de pregunta"
+            VerticalOptions="StartAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Margin="10,10"
+                
+                    TitleColor="white"
+                Background="white"
+                TextColor="blue"
+            ItemsSource="{Binding Tipo}"
+            SelectedItem="{Binding Pregunta.TipoPregunta, Converter={StaticResource tipoPreguntaToStringConverter}}"
+            ></Picker>
+
+            <Grid 
+                Margin="10,0"
+                IsVisible="{Binding Source={x:Reference pikerTipo}, Path=SelectedIndex, Converter={StaticResource IsPreguntaTipoOpciones}}"
+                >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+
+                    <!-- Botón para agregar opciones -->
+                    <Button  
+                            Command="{Binding OtraOpcionCommand}"
+                        Text="Agregar opciones" 
+                        BackgroundColor="green" 
+                        TextColor="White" 
+                        HorizontalOptions="Center" >
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="MaterialDesignIcons" Glyph="{x:Static helpers:MaterialIconHelper.Plus}" Color="White"/>
+                        </Button.ImageSource>
+                    </Button>
+                
+                   
+            </Grid>
+                <StackLayout IsVisible="{Binding Source={x:Reference pikerTipo}, Path=SelectedIndex, Converter={StaticResource IsPreguntaTipoOpciones}}">
+                    <Grid 
+                    Margin="10,0"
+                    IsVisible="{Binding IsNuevaOpcion}"
+                    >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Entry
+                        Grid.Column="0"
+                        Placeholder="Nueva opción"
+                        VerticalOptions="StartAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="10,0"
+                        FontSize="16"
+                        Background="white"
+                        Text="{Binding NuevaOpcion}"
+                        ></Entry>
+
+
+                        <!-- Botón para agregar opciones -->
+                        <Button  
+                            Command="{Binding AgregarOpcionCommand}"
+                        Text="Guardar" 
+                        BackgroundColor="#458ccc"
+                        TextColor="White" 
+                        HorizontalOptions="End" 
+                            >
+                            <Button.ImageSource>
+                                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="{x:Static helpers:MaterialIconHelper.Plus}" Color="White"/>
+                            </Button.ImageSource>
+                        </Button>
+
+                    </Grid>
+                </StackLayout>
+
+                <ScrollView>
+                    <CollectionView ItemsSource="{Binding Pregunta.Opciones}" x:Name="cOpciones"
+                    IsVisible="{Binding Source={x:Reference pikerTipo}, Path=SelectedIndex, Converter={StaticResource IsPreguntaTipoOpciones}}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid BackgroundColor="#4D335E88" Margin="10,10" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding}"
+                           VerticalOptions="Center" 
+                           HorizontalOptions="StartAndExpand" 
+                           VerticalTextAlignment="Center"
+                           Padding="10"
+                           Grid.Column="0"
+                           TextColor="White"
+                           Grid.Row="0"/>
+                                    <Button
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="{x:Static helpers:MaterialIconHelper.CloseCircle}"
+                        FontFamily="MaterialDesignIcons" 
+                        Command="{Binding Path=BindingContext.EliminarOpcionCommand, Source={Reference cOpciones}}"
+                        CommandParameter="{Binding .}"
+                        Background="Transparent"
+                        TextColor="Red"
+                        FontSize="30"
+                        ></Button>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+
+
+                <!--IsVisible="{Binding IsConfigurable}"-->
+            <Button
+            Text="Guardar"
+            Command="{Binding GuardarPreguntaCommand}"
+            VerticalOptions="StartAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Background="#458ccc"
+            TextColor="White"
+            Margin="10,20"
+            FontSize="18"
+            ></Button>
+
+
+        </VerticalStackLayout>
+
+        </ScrollView>
+    </Grid>
+</ContentPage>
