@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:loc="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
              x:Class="TodoList.Pages.RegistroTareaPage"
              xmlns:local="clr-namespace:TodoList.Converters"
              xmlns:helpers="clr-namespace:TodoList.Helpers"
@@ -36,52 +37,73 @@
                 TextColor="red"
                 FontSize="20"
                 Margin="0,20"/>
+                <!-- Texto fuera del DatePicker -->
+                <Label Margin="10,10,10,3" Text="Titulo" TextColor="Black" FontSize="18"/>
+
                 <Entry
                 IsEnabled="{Binding IsConfigurable}"
                 Placeholder="Titulo"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="FillAndExpand"
                 Margin="10,10"
+                    TextColor="Black"
                      BackgroundColor="White"
-                FontSize="16"
+                FontSize="20"
                 Text="{Binding Tarea.Titulo}"
                 ></Entry>
+
+                <!-- Texto fuera del DatePicker -->
+                <Label Margin="10,10,10,3" Text="Descripción" TextColor="Black" FontSize="18"/>
+
                 <Entry
                 IsEnabled="{Binding IsConfigurable}"
                 Placeholder="Descripción"
+                    TextColor="Black"
                      BackgroundColor="White"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="FillAndExpand"
                 Margin="10,10"
-                FontSize="16"
+                FontSize="18"
                 Text="{Binding Tarea.Descripcion}"
                 ></Entry>
+                <!-- Texto fuera del DatePicker -->
+                <Label Margin="10,10,10,3" Text="Fecha incial" TextColor="Black"  FontSize="18" />
+
                 <DatePicker
                 IsEnabled="{Binding IsConfigurable}"
                 Date="{Binding Tarea.FechaInicial}"
                 VerticalOptions="StartAndExpand"
+                    TextColor="Black"
                 HorizontalOptions="FillAndExpand"
                 Format="dd/MM/yyyy"
                 Margin="10,10"
                      BackgroundColor="White"
-                FontSize="16"
+                FontSize="18"
                 ></DatePicker>
+
+                <!-- Texto fuera del DatePicker -->
+                <Label Margin="10,10,10,3" Text="Fecha final" TextColor="Black" FontSize="18"/>
+
                 <DatePicker
                 IsEnabled="{Binding IsConfigurable}"
                 Date="{Binding Tarea.FechaFinal}"
+                    TextColor="Black"
                      BackgroundColor="White"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="FillAndExpand"
                 Format="dd/MM/yyyy"
                 Margin="10,10"
-                FontSize="16"
+                FontSize="18"
                 ></DatePicker>
+
+                <!-- Texto fuera del DatePicker -->
+                <Label Margin="10,10,10,3" Text="Prioridad" TextColor="Black" FontSize="18"/>
+
 
                 <Picker
                 x:Name="pikerPrioridad"
                 IsEnabled="{Binding IsConfigurable}"
-                Title="Prioridad"
-                    TitleColor="Black"
+               
                 BackgroundColor="White"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="FillAndExpand"
@@ -90,12 +112,15 @@
                 ItemsSource="{Binding Prioridad}"
                 SelectedItem="{Binding Tarea.Prioridad, Converter={StaticResource PrioridadToStringConverter}}"
                 ></Picker>
+
+
+
+                <!-- Texto fuera del DatePicker -->
+                <Label Margin="10,10,10,3" Text="Tipo de tarea" TextColor="Black" FontSize="18"/>
+
                 <Picker
                 x:Name="pikerTipo"
                 IsEnabled="{Binding IsConfigurable}"
-                Title="Tipo de tarea"
-                    
-                    TitleColor="Black"
                      BackgroundColor="White"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="FillAndExpand"
@@ -110,7 +135,7 @@
                 <Button  
                     IsEnabled="{Binding IsSelectOtherFile}"
 Command="{Binding SeleccionarArchivoCommand}"
-    Text="Seleccionar Archivo" 
+     Text="{loc:Translate Archivo}"         
     IsVisible="{Binding Source={x:Reference pikerTipo}, Path=SelectedIndex, Converter={StaticResource isTareaTipoArchivo}}"
 
  TextColor="white"
@@ -141,7 +166,7 @@ Command="{Binding SeleccionarArchivoCommand}"
                     <!-- Botón para agregar preguntas -->
                     <Button  
                         Command="{Binding AbrirRegistroEncuestaCommand}" 
-                        Text="Agregar preguntas" 
+                        Text="{loc:Translate Agregar}"
                         BackgroundColor="green" 
                         TextColor="White" 
                         HorizontalOptions="Center"
@@ -187,7 +212,7 @@ Command="{Binding SeleccionarArchivoCommand}"
                                     <Button
                                         Grid.Column="1"
                                         Grid.Row="0"
-                                        Text="{x:Static helpers:MaterialIconHelper.Pen}"
+                                        Text="{x:Static helpers:MaterialIconHelper.CircleEditOutline}"
                                         FontFamily="MaterialDesignIcons" 
                                         Command="{Binding Path=BindingContext.EditarPreguntaCommand, Source={Reference lPreguntas}}"
                                         CommandParameter="{Binding .}"
@@ -254,7 +279,7 @@ Command="{Binding SeleccionarArchivoCommand}"
 
 
                 <Button
-                Text="Guardar"
+                 Text="{loc:Translate Botonguardar}"
                 IsVisible="{Binding IsConfigurable}"
                 Command="{Binding GuardarCommand}"
                 VerticalOptions="StartAndExpand"
@@ -266,7 +291,7 @@ Command="{Binding SeleccionarArchivoCommand}"
                 ></Button>
 
                 <Button
-                Text="Cancelar tarea"
+                Text="{loc:Translate Botoncancelar}"
                 IsVisible="{Binding IsActivo}"
                 Command="{Binding CancelarCommand}"
                 VerticalOptions="StartAndExpand"

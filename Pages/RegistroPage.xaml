@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
              x:Class="TodoList.Pages.RegistroPage"
-             NavigationPage.HasNavigationBar="False">
+               NavigationPage.HasNavigationBar="False">
 
     <Grid>
         <Image Source="https://i.pinimg.com/736x/69/06/6c/69066cf68bb3555260fcee822acb931f.jpg" Aspect="AspectFill" />
@@ -10,6 +11,7 @@
         <ScrollView>
         <StackLayout Padding="20" VerticalOptions="Center">
             <Label 
+               
                 Text="!Crea tu cuenta!"
                 HorizontalOptions="Center"
                 FontSize="25"
@@ -19,7 +21,7 @@
 
             <StackLayout Margin="10,0">
                 <Entry
-                    Placeholder="Nombre"
+                    Placeholder="{loc:Translate Nombre}"
                     HorizontalOptions="FillAndExpand"
                     FontSize="16"
                     Text="{Binding Reg.Username.Value}"
@@ -31,7 +33,7 @@
 
             <StackLayout Margin="10,0">
                 <Entry
-                    Placeholder="Correo electrónico"
+                    Placeholder="{loc:Translate Correo}"
                     HorizontalOptions="FillAndExpand"
                     FontSize="16"
                     Text="{Binding Reg.Email.Value}"
@@ -43,7 +45,7 @@
 
             <StackLayout Margin="10,0">
                 <Entry
-                    Placeholder="Contraseña"
+                    Placeholder="{loc:Translate Contraseña}"
                     IsPassword="True"
                     HorizontalOptions="FillAndExpand"
                     FontSize="16"
@@ -56,7 +58,7 @@
 
             <StackLayout Margin="10,0">
                 <Entry
-                    Placeholder="Repetir contraseña"
+                   Placeholder="{loc:Translate Repetircontraseña}"
                     IsPassword="True"
                     HorizontalOptions="FillAndExpand"
                     FontSize="16"
@@ -68,7 +70,7 @@
             </StackLayout>
 
             <Button
-                Text="Registrar"
+                Text="{loc:Translate TitleRegistro}"
                 Command="{Binding RegistroCommand}"
                 HorizontalOptions="FillAndExpand"
                 BackgroundColor="#458ccc"
@@ -78,7 +80,7 @@
                 ></Button>
 
             <Label
-                Text="¿Ya tienes una cuenta? Inicia sesión"
+                Text="{loc:Translate ComentarioLog}"
                 HorizontalOptions="Center"
                 Margin="10,30"
                 FontSize="16"
