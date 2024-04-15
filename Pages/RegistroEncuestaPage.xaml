@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:loc="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
              x:Class="TodoList.Pages.RegistroEncuestaPage"
              xmlns:helpers="clr-namespace:TodoList.Helpers"
              xmlns:local="clr-namespace:TodoList.Converters"
@@ -26,21 +27,27 @@
             FontSize="24"
             TextColor="#458ccc"
             Margin="0,20"/>
-            
-            <Entry
+
+                <!-- Texto fuera del DatePicker -->
+                <Label Margin="10,10,10,3" Text="Descripción" TextColor="White" FontSize="18"/>
+
+
+                <Entry
             Placeholder="Descripción"
             VerticalOptions="StartAndExpand"
             HorizontalOptions="FillAndExpand"
             Margin="10,10"
-            FontSize="16"
+            FontSize="18"
+                    TextColor="Black"
                 
                 Background="White"
             Text="{Binding Pregunta.Descripcion}"
             ></Entry>
-            
-            <Picker
+                <!-- Texto fuera del DatePicker -->
+                <Label Margin="10,10,10,3" Text="Tipo de pregunta" TextColor="white" FontSize="18"/>
+
+                <Picker
             x:Name="pikerTipo"
-            Title="Tipo de pregunta"
             VerticalOptions="StartAndExpand"
             HorizontalOptions="FillAndExpand"
             Margin="10,10"
@@ -65,7 +72,8 @@
                     <!-- Botón para agregar opciones -->
                     <Button  
                             Command="{Binding OtraOpcionCommand}"
-                        Text="Agregar opciones" 
+                        
+                         Text="{loc:Translate Opciones}"
                         BackgroundColor="green" 
                         TextColor="White" 
                         HorizontalOptions="Center" >
@@ -85,7 +93,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-
+                        
                         <Entry
                         Grid.Column="0"
                         Placeholder="Nueva opción"
@@ -93,6 +101,7 @@
                         HorizontalOptions="FillAndExpand"
                         Margin="10,0"
                         FontSize="16"
+                            TextColor="black"
                         Background="white"
                         Text="{Binding NuevaOpcion}"
                         ></Entry>
@@ -101,16 +110,17 @@
                         <!-- Botón para agregar opciones -->
                         <Button  
                             Command="{Binding AgregarOpcionCommand}"
-                        Text="Guardar" 
+                         Text="{loc:Translate Botonguardar}"
                         BackgroundColor="#458ccc"
                         TextColor="White" 
                         HorizontalOptions="End" 
                             >
                             <Button.ImageSource>
-                                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="{x:Static helpers:MaterialIconHelper.Plus}" Color="White"/>
+                                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="{x:Static helpers:MaterialIconHelper.ContentSaveMove}" Color="White"/>
                             </Button.ImageSource>
                         </Button>
 
+                       
                     </Grid>
                 </StackLayout>
 
@@ -156,7 +166,7 @@
 
                 <!--IsVisible="{Binding IsConfigurable}"-->
             <Button
-            Text="Guardar"
+             Text="{loc:Translate Botonguardar}"
             Command="{Binding GuardarPreguntaCommand}"
             VerticalOptions="StartAndExpand"
             HorizontalOptions="FillAndExpand"

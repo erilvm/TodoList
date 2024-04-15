@@ -53,6 +53,8 @@ namespace TodoList.ViewModels
             }
         }
 
+        
+
         [RelayCommand]
         public void AbrirRegistro()
         {

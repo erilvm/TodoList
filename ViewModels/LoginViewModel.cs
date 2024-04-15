@@ -9,19 +9,24 @@ using Firebase.Auth;
 using Plugin.ValidationRules;
 using TodoList.Models;
 using TodoList.Pages;
+using LocalizationResourceManager.Maui;
+
 
 namespace TodoList.ViewModels
 {
     public partial class LoginViewModel : ObservableObject
     {
         private readonly FirebaseAuthClient _client;
+        ILocalizationResourceManager _localizationResourceManager;
+
 
         [ObservableProperty]
         private Login lgin;
 
-        public LoginViewModel(FirebaseAuthClient client)
+        public LoginViewModel(FirebaseAuthClient client, ILocalizationResourceManager localizationResourceManager)
         {
             _client = client;
+            _localizationResourceManager = localizationResourceManager;
             lgin = new Login();
         }
 
@@ -48,6 +53,16 @@ namespace TodoList.ViewModels
         public void RegistroPage()
         {
             Shell.Current.GoToAsync(nameof(RegistroPage));
+        }
+
+        [RelayCommand]
+        public void Translate()
+        {
+            if (_localizationResourceManager.CurrentCulture.TwoLetterISOLanguageName == "es")
+                _localizationResourceManager.CurrentCulture = new System.Globalization.CultureInfo("en");
+            else
+                _localizationResourceManager.CurrentCulture = new System.Globalization.CultureInfo("es");
+
         }
     }
 }

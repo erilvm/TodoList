@@ -23,9 +23,8 @@
 
         <!-- Contenido principal -->
         <StackLayout Padding="20">
-            
-            
-             <RefreshView 
+
+            <RefreshView 
         IsRefreshing="{Binding IsRefresh}"
         Command="{Binding AgregarTareasCommand}"
         Margin="20,0">
@@ -45,7 +44,7 @@
                     <CollectionView.ItemTemplate>
                         
                         <DataTemplate>
-                            <Grid Padding="10" BackgroundColor="#4D335E88" Margin="0,10">
+                            <Grid Padding="10" BackgroundColor="#CCFFCC" Margin="0,10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
@@ -82,17 +81,19 @@
                                     <Label
                             Text="{Binding Titulo}"
                             FontAttributes="Bold"
+                                        TextColor="black"
                             TextDecorations="{Binding Source={x:Reference mCheck}, Path=IsChecked, Converter={StaticResource tareaCompletadaConverter}}"/>
                                     <Label
                             Text="{Binding Descripcion}"
                             FontAttributes="Italic"
+                                        TextColor="Black"
                             VerticalOptions="End"
                             TextDecorations="{Binding Source={x:Reference mCheck}, Path=IsChecked, Converter={StaticResource tareaCompletadaConverter}}"/>
                                     <Label>
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Prioridad: " TextDecorations="{Binding Source={x:Reference mCheck}, Path=IsChecked, Converter={StaticResource tareaCompletadaConverter}}" />
-                                                <Span Text="{Binding Prioridad}" TextDecorations="{Binding Source={x:Reference mCheck}, Path=IsChecked, Converter={StaticResource tareaCompletadaConverter}}" />
+                                                <Span Text="Prioridad: " TextColor="black" TextDecorations="{Binding Source={x:Reference mCheck}, Path=IsChecked, Converter={StaticResource tareaCompletadaConverter}}" />
+                                                <Span Text="{Binding Prioridad}" TextColor="black"  TextDecorations="{Binding Source={x:Reference mCheck}, Path=IsChecked, Converter={StaticResource tareaCompletadaConverter}}" />
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
@@ -119,7 +120,7 @@
         
         <!-- Botón para agregar tarea -->
 
-            <Button
+        <Button
   Text="{x:Static helpers:MaterialIconHelper.PlusCircle}"
   FontFamily="MaterialDesignIcons" 
 Command="{Binding AbrirRegistroCommand}" 
@@ -130,7 +131,8 @@ Command="{Binding AbrirRegistroCommand}"
   TextColor="blue"
                   FontSize="60">
 
-            </Button>
+        </Button>
 
-        </Grid>
+    </Grid>
+    
 </ContentPage>

@@ -2,8 +2,11 @@
 using Firebase.Auth;
 using Firebase.Auth.Providers;
 using Firebase.Storage;
+using LocalizationResourceManager.Maui;
 using Microsoft.Extensions.Logging;
 using TodoList.Pages;
+using TodoList.Resources;
+using TodoList.Resources.Location;
 using TodoList.Services;
 using TodoList.ViewModels;
 
@@ -36,17 +39,23 @@ namespace TodoList
             builder.Services.AddTransient<RegistroViewModel>();
 
             builder
-                .UseMauiApp<App>()
-                .UseMauiCommunityToolkit()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("materialdesignicons-webfont.ttf", "MaterialDesignIcons");
-                });
+                   .UseMauiApp<App>()
+                   .UseLocalizationResourceManager(settings =>
+                   {
+                       settings.RestoreLatestCulture(true);
+                       settings.AddResource(AppResources.ResourceManager);
+                   })
+                   .UseMauiCommunityToolkit()
+                   .ConfigureFonts(fonts =>
+                   {
+                       fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                       fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                       fonts.AddFont("materialdesignicons-webfont.ttf", "MaterialDesignIcons");
+                   });
 
-            #if DEBUG
-    		builder.Logging.AddDebug();
+
+#if DEBUG
+            builder.Logging.AddDebug();
             #endif
 
             builder.Services.AddSingleton(new FirebaseAuthClient(new FirebaseAuthConfig()
