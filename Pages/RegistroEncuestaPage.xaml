@@ -29,11 +29,10 @@
             Margin="0,20"/>
 
                 <!-- Texto fuera del DatePicker -->
-                <Label Margin="10,10,10,3" Text="Descripción" TextColor="White" FontSize="18"/>
+                <Label Margin="10,10,10,3" Text="{loc:Translate Descripcion}" TextColor="White" FontSize="18"/>
 
 
                 <Entry
-            Placeholder="Descripción"
             VerticalOptions="StartAndExpand"
             HorizontalOptions="FillAndExpand"
             Margin="10,10"
@@ -44,7 +43,7 @@
             Text="{Binding Pregunta.Descripcion}"
             ></Entry>
                 <!-- Texto fuera del DatePicker -->
-                <Label Margin="10,10,10,3" Text="Tipo de pregunta" TextColor="white" FontSize="18"/>
+                <Label Margin="10,10,10,3" Text="{loc:Translate TipoTarea}" TextColor="white" FontSize="18"/>
 
                 <Picker
             x:Name="pikerTipo"
@@ -73,7 +72,7 @@
                     <Button  
                             Command="{Binding OtraOpcionCommand}"
                         
-                         Text="{loc:Translate Opciones}"
+                        Text="{loc:Translate Opciones}"
                         BackgroundColor="green" 
                         TextColor="White" 
                         HorizontalOptions="Center" >
@@ -96,7 +95,6 @@
                         
                         <Entry
                         Grid.Column="0"
-                        Placeholder="Nueva opción"
                         VerticalOptions="StartAndExpand"
                         HorizontalOptions="FillAndExpand"
                         Margin="10,0"

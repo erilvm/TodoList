@@ -22,9 +22,9 @@
             FontSize="14"
             Margin="10"
             ></Button>
-                
+
                 <Label 
-                Text="Bienvenidos YEU!"
+                Text="{loc:Translate loginsms}"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 FontFamily="sans-serif"
@@ -42,7 +42,7 @@
                     BackgroundColor="White"
                     TextColor="Black"
                     ></Entry>
-                <Label Text="{Binding Lgin.email.Error}" TextColor="Red" Margin="0,5,0,0" />
+                    <Label Text="{Binding Lgin.email.Error}" TextColor="Red" Margin="0,5,0,0" />
             </StackLayout>
 
             <StackLayout Margin="10,0">
@@ -55,8 +55,8 @@
                     BackgroundColor="White"
                     TextColor="Black"
                     ></Entry>
-                <Label Text="{Binding Lgin.password.Error}" TextColor="Red" Margin="0,5,0,0" />
-            </StackLayout>
+                    <Label Text="{Binding Lgin.password.Error}" TextColor="Red" Margin="0,5,0,0" />
+                </StackLayout>
 
             <Button
                 Text="{loc:Translate TitleLogin}"

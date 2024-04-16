@@ -9,6 +9,7 @@ using Firebase.Auth;
 using Plugin.ValidationRules;
 using TodoList.Models;
 using TodoList.Pages;
+using Newtonsoft.Json;
 using LocalizationResourceManager.Maui;
 
 
@@ -39,6 +40,7 @@ namespace TodoList.ViewModels
                 if (unit.Validate())
                 {
                     var user = await _client.SignInWithEmailAndPasswordAsync(Lgin.email.Value, Lgin.password.Value);
+                    Preferences.Set("AuthToken", JsonConvert.SerializeObject(user.User));
                     Lgin = new Login();
                     _ = Shell.Current.GoToAsync(nameof(ToDoPage));
                 }

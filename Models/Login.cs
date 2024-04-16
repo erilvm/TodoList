@@ -14,7 +14,7 @@ namespace TodoList.Models
     public class Login
     {
         public Validatable<string> email { get; set; } = Validator.Build<string>()
-            .IsRequired("El correo electronico es requerido").WithRule(new EmailRule().WithMessage("El correo no es valido"));
+            .IsRequired("El correo electronico es requerido").WithRule(new EmailRule());
         public Validatable<string> password { get; set; } = Validator.Build<string>()
             .IsRequired("La contraseña es requerida").WithRule(new PasswordRule());
     }
