@@ -133,5 +133,11 @@ namespace TodoList.ViewModels
                 await fakeService.EditTaskAsync(tarea);
             }
         }
+        [RelayCommand]
+        private async Task Logout()
+        {
+            Preferences.Remove("AuthToken");
+            await App.Current.MainPage.Navigation.PopAsync();
+        }
     }
 }

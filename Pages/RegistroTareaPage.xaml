@@ -30,19 +30,20 @@
                     FontAttributes="Bold" 
                 TextColor="Black"
                 Margin="0,20"/>
+                
                 <Label 
-                Text="{Binding Tarea.Estado, Converter={StaticResource EstadoToStringConverter}}"
+                Text="{Binding Tarea.Estado, 
+                    Converter={StaticResource EstadoToStringConverter}}"
                 VerticalOptions="Center" 
                 HorizontalOptions="End"
                 TextColor="red"
                 FontSize="20"
                 Margin="0,20"/>
                 <!-- Texto fuera del DatePicker -->
-                <Label Margin="10,10,10,3" Text="Titulo" TextColor="Black" FontSize="18"/>
+                <Label Margin="10,10,10,3" Text="{loc:Translate Titulo}" TextColor="Black" FontSize="18"/>
 
                 <Entry
                 IsEnabled="{Binding IsConfigurable}"
-                Placeholder="Titulo"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="FillAndExpand"
                 Margin="10,10"
@@ -53,11 +54,10 @@
                 ></Entry>
 
                 <!-- Texto fuera del DatePicker -->
-                <Label Margin="10,10,10,3" Text="Descripción" TextColor="Black" FontSize="18"/>
+                <Label Margin="10,10,10,3" Text="{loc:Translate Descripcion}" TextColor="Black" FontSize="18"/>
 
                 <Entry
                 IsEnabled="{Binding IsConfigurable}"
-                Placeholder="Descripción"
                     TextColor="Black"
                      BackgroundColor="White"
                 VerticalOptions="StartAndExpand"
@@ -67,7 +67,7 @@
                 Text="{Binding Tarea.Descripcion}"
                 ></Entry>
                 <!-- Texto fuera del DatePicker -->
-                <Label Margin="10,10,10,3" Text="Fecha incial" TextColor="Black"  FontSize="18" />
+                <Label Margin="10,10,10,3" Text="{loc:Translate Fechaini}" TextColor="Black"  FontSize="18" />
 
                 <DatePicker
                 IsEnabled="{Binding IsConfigurable}"
@@ -82,7 +82,7 @@
                 ></DatePicker>
 
                 <!-- Texto fuera del DatePicker -->
-                <Label Margin="10,10,10,3" Text="Fecha final" TextColor="Black" FontSize="18"/>
+                <Label Margin="10,10,10,3" Text="{loc:Translate Fechafina}"  TextColor="Black" FontSize="18"/>
 
                 <DatePicker
                 IsEnabled="{Binding IsConfigurable}"
@@ -97,7 +97,7 @@
                 ></DatePicker>
 
                 <!-- Texto fuera del DatePicker -->
-                <Label Margin="10,10,10,3" Text="Prioridad" TextColor="Black" FontSize="18"/>
+                <Label Margin="10,10,10,3" Text="{loc:Translate Prioridad}"  TextColor="Black" FontSize="18"/>
 
 
                 <Picker
@@ -116,7 +116,7 @@
 
 
                 <!-- Texto fuera del DatePicker -->
-                <Label Margin="10,10,10,3" Text="Tipo de tarea" TextColor="Black" FontSize="18"/>
+                <Label Margin="10,10,10,3" Text="{loc:Translate TipoTarea}" TextColor="Black" FontSize="18"/>
 
                 <Picker
                 x:Name="pikerTipo"
@@ -150,7 +150,9 @@ Command="{Binding SeleccionarArchivoCommand}"
                     </Button.ImageSource>
                 </Button>
                 
-                <Label Text="{Binding ArchivoSeleccionado}" IsVisible="{Binding Source={x:Reference pikerTipo}, Path=SelectedIndex, Converter={StaticResource isTareaTipoArchivo}}" Margin="10,0"  />
+                <Label Text="{Binding ArchivoSeleccionado}" IsVisible="{Binding Source={x:Reference pikerTipo}, Path=SelectedIndex, Converter={StaticResource 
+                    
+                    TipoArchivo}}" Margin="10,0"  />
 
                 <Grid 
                 Margin="10,20"
@@ -201,7 +203,8 @@ Command="{Binding SeleccionarArchivoCommand}"
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Text="{Binding Descripcion}" 
+                                    <Label  
+                                       Text="{Binding Descripcion}" 
                                        VerticalOptions="Center" 
                                        HorizontalOptions="StartAndExpand" 
                                        Padding="10"
@@ -254,7 +257,7 @@ Command="{Binding SeleccionarArchivoCommand}"
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Text="{Binding Descripcion}" 
+                                    <Label  Text="{loc:Translate Descripcion}"
                                        VerticalOptions="Center" 
                                        HorizontalOptions="StartAndExpand" 
                                        Padding="10"

@@ -129,6 +129,9 @@
   <data name="Botonguardar" xml:space="preserve">
     <value>Guardar</value>
   </data>
+  <data name="BotonNext" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
   <data name="ComentarioLog" xml:space="preserve">
     <value>¿Ya tienes una cuenta? Inicia sesión</value>
   </data>
@@ -141,19 +144,70 @@
   <data name="Correo" xml:space="preserve">
     <value>Correo electrónico</value>
   </data>
+  <data name="Descripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="EditQuest" xml:space="preserve">
+    <value>Editar pregunta</value>
+  </data>
+  <data name="EditTask" xml:space="preserve">
+    <value>Editar tarea</value>
+  </data>
+  <data name="Encuesta" xml:space="preserve">
+    <value>Encuesta</value>
+  </data>
+  <data name="errorcontra" xml:space="preserve">
+    <value>La contraseña es requerida</value>
+  </data>
+  <data name="erroremail" xml:space="preserve">
+    <value>El correo electronico es requerido</value>
+  </data>
+  <data name="Fechafina" xml:space="preserve">
+    <value>Fecha final</value>
+  </data>
+  <data name="Fechaini" xml:space="preserve">
+    <value>Fecha inicio</value>
+  </data>
+  <data name="loginsms" xml:space="preserve">
+    <value>Bienvenidos YEU!</value>
+  </data>
   <data name="Nombre" xml:space="preserve">
     <value>Nombre</value>
   </data>
   <data name="Opciones" xml:space="preserve">
     <value>Agregar opciones</value>
   </data>
+  <data name="Prioridad" xml:space="preserve">
+    <value>Prioridad: </value>
+  </data>
+  <data name="regisms" xml:space="preserve">
+    <value>!Crea tu cuenta!</value>
+  </data>
+  <data name="RegQuest" xml:space="preserve">
+    <value>Nueva pregunta</value>
+  </data>
+  <data name="RegTask" xml:space="preserve">
+    <value>Nueva tarea</value>
+  </data>
   <data name="Repetircontraseña" xml:space="preserve">
     <value>Repetir contraseña</value>
+  </data>
+  <data name="Respuesta" xml:space="preserve">
+    <value>Respuesta</value>
+  </data>
+  <data name="Selectrespuesta" xml:space="preserve">
+    <value>Selecciona tu respuesta</value>
+  </data>
+  <data name="TipoTarea" xml:space="preserve">
+    <value>Tipo de tarea</value>
   </data>
   <data name="TitleLogin" xml:space="preserve">
     <value>Iniciar Sesión</value>
   </data>
   <data name="TitleRegistro" xml:space="preserve">
     <value>Registrarse</value>
+  </data>
+  <data name="Titulo" xml:space="preserve">
+    <value>Titulo</value>
   </data>
 </root>

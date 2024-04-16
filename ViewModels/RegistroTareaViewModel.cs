@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using LocalizationResourceManager.Maui;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -16,6 +17,9 @@ namespace TodoList.ViewModels
 {
     public partial class RegistroTareaViewModel : ObservableObject, IQueryAttributable
     {
+        ILocalizationResourceManager _localizationResourceManager;
+        LocalizedString _titulo;
+
         [ObservableProperty]
         private Tarea tarea;
 
@@ -49,12 +53,15 @@ namespace TodoList.ViewModels
         public string[] Prioridad { get; set; } = (string[])Enum.GetNames(typeof(ePrioridad));
         public string[] Estado { get; set; } = (string[])Enum.GetNames(typeof(eEstado));
 
-        public RegistroTareaViewModel(IDataService service, IStorageService storageService)
+        public RegistroTareaViewModel(IDataService service, IStorageService storageService,
+              ILocalizationResourceManager localizationResourceManager)
         {
+            _localizationResourceManager = localizationResourceManager;
             tarea = new Tarea();
             firebaseService = service;
             this.storageService = storageService;
-            TituloPage = "Nueva Tarea";
+            _titulo = new(() => _localizationResourceManager["RegTask"]);
+            TituloPage = _titulo.Localized;
             isActivo = false;
             isConfigurable = true;
             isComplete = false;
@@ -130,7 +137,8 @@ namespace TodoList.ViewModels
             if (query.TryGetValue("TAREA", out value))
             {
                 Tarea = value as Tarea;
-                TituloPage = "Editar tarea";
+                _titulo = new(() => _localizationResourceManager["EditTask"]);
+                TituloPage = _titulo.Localized;
                 isEditar = true;
                 ArchivoSeleccionado = Tarea.NombreArchivo;
                 if (Tarea.Estado == eEstado.Activo)
